@@ -19,3 +19,6 @@ The overall steps are:
 
 - Useful tools e.g emacs
 
+## Required Variables
+
+TODO
