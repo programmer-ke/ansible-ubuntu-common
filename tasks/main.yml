@@ -1,0 +1,8 @@
+---
+- include: ssh.yml
+- include: sudoers.yml
+- include: hostname.yml
+- include: ntp.yml
+- include: locale.yml  
+- include: firewall.yml
+- include: unattended_updates.yml

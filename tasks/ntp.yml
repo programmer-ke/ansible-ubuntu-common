@@ -1,0 +1,9 @@
+---
+- name: Install ntp packages
+  apt: pkg={{ item }} state=present
+  with_items:
+    - ntp
+    - ntpdate
+
+- name: Ensure ntpd enabled at boot and started
+  service: name=ntp state=started enabled=yes

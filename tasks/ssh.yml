@@ -1,0 +1,13 @@
+---
+- name: Ensure the ssh server daemon is set to start on reboot
+  service: name=ssh enabled=yes state=started
+
+- name: Dissallows root SSH access
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" 
+              state=present line="PermitRootLogin no"
+  notify: Restart sshd
+
+- name: Disables SSH password authentication
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^PasswordAuthentication"
+              line="PasswordAuthentication no" state=present
+  notify: Restart sshd

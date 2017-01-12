@@ -1,0 +1,14 @@
+---
+- name: Check that unattended-upgrades package is installed
+  apt: pkg=unattended-upgrades state=present
+
+- name: Checks that updates-notifier is installed
+  apt: pkg=update-notifier-common state=present
+
+- name: Set unattended upgrades configuration
+  template: src=50unattended-upgrades.j2 dest=/etc/apt/apt.conf.d/50unattended-upgrades
+    owner=root group=root mode=0644
+
+- name: Set automatic updates
+  template: src=10periodic.j2 dest=/etc/apt/apt.conf.d/10periodic owner=root group=root
+    mode=0644

@@ -1,0 +1,29 @@
+---
+- name: Ensure iptables and fail2ban are installed
+  apt: name={{ item }} state=present
+  with_items:
+    - iptables
+    - fail2ban
+  notify: restart firewall
+
+- name: Flush iptables first time playbook runs
+  command: iptables -F creates=/etc/init.d/firewall
+
+- name: Copy the firewall script into place
+  template: src=firewall.bash.j2 dest=/etc/firewall.bash owner=root group=root 
+    mode=0744
+  notify: restart firewall
+
+- name: Copy firewall init script into place
+  copy: src=firewall dest=/etc/init.d/firewall owner=root group=root mode=0755
+
+- name: Copy fail2ban custom configuration
+  template: src=jail.local.j2 dest=/etc/fail2ban/jail.local owner=root 
+            group=root mode=0644
+  notify: restart firewall
+  
+- name: Ensure firewall is started at boot
+  service: name=firewall state=started enabled=yes
+
+- name: Ensure fail2ban is started at boot
+  service: name=fail2ban enabled=yes state=started
