@@ -2,9 +2,9 @@
 - name: Set the system shortname
   copy: content="{{ short_name }}\n" dest=/etc/hostname owner=root group=root
         mode=0644
-  notify: Restart hostname service
+  notify: restart hostname service
 
 - name: Updates /etc/hosts (127.0.1.1)
   lineinfile: dest=/etc/hosts regexp=^127.0.1.1 line="{{ etc_hosts_entry }}"
               state=present
-  notify: Restart hostname service
+  notify: restart hostname service

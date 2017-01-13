@@ -1,7 +1,7 @@
-- name: Removes sudo group authorizations
+- name: Remove sudo group authorizations
   lineinfile: dest=/etc/sudoers regexp=^% state=absent validate='visudo -cf %s'
 
-- name: Removes included directory for additional sudo configuration
+- name: Remove included directory for additional sudo configuration
   lineinfile: dest=/etc/sudoers regexp=^includeddir state=absent validate='visudo -cf %s'
 
 - name: Delete /etc/sudoers.d/ files

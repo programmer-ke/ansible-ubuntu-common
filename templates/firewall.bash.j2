@@ -5,16 +5,20 @@
 # Flush all current rules from iptables
 iptables -F
 
-# Allow SSH connections to tcp port 22
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+# Accept tcp packets to allowed ports
+{% for port in allowed_tcp_ports %}
+iptables -A INPUT -p tcp --dport {{ port }} -j ACCEPT
+{% endfor %}
+
+# Additional rules specified
+{% for rule in additional_iptables_rules %}
+{{ rule }}
+{% endfor %}
 
 # Set default policies for INPUT, FORWARD and OUTPUT chains
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
 iptables -P OUTPUT ACCEPT
-
-# Accept tcp packets to ports 80, 443 (http/ssl connections)
-iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
 # Set access for localhost
 iptables -A INPUT -i lo -j ACCEPT

@@ -21,4 +21,20 @@ The overall steps are:
 
 ## Required Variables
 
-TODO
+- `short_name` - system name
+
+- `etc_hosts_entry` - An entry in /etc/hosts mapping your static ip to your fqdn
+
+- `locale` - Your default system locale e.g. en_US.UTF-8
+
+- `timezone` - Timezone as appears in tzdata e.g. 'Africa/Nairobi'
+
+- `allowed_tcp_ports` - Allowed iptables INPUT TCP ports (including ssh)
+
+- `additional_iptables_rules` - A list of additional iptables rules
+
+- `fail2ban_mail_recipient` - Mail recepient for fail2ban notifications (default root@localhost)
+
+- `reboot_on_upgrade` - whether to reboot when unattended upgrades require it (default "false")
+
+- `reboot_time` - What time to reboot in format HH:MM (default "now")
