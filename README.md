@@ -35,6 +35,6 @@ The overall steps are:
 
 - `fail2ban_mail_recipient` - Mail recepient for fail2ban notifications (default root@localhost)
 
-- `reboot_on_upgrade` - whether to reboot when unattended upgrades require it (default "false")
+- `reboot_on_upgrade` - whether to reboot when unattended upgrades require it (default "no")
 
 - `reboot_time` - What time to reboot in format HH:MM (default "now")

@@ -1,0 +1,9 @@
+---
+locale: en_US.UTF-8
+timezone: Etc/UTC
+allowed_tcp_ports:
+  - 22
+additional_iptables_rules: []
+fail2ban_mail_recipient: "root@localhost"
+reboot_on_upgrade: no
+reboot_time: now
