@@ -23,6 +23,8 @@ The overall steps are:
 
 - `short_name` - system name
 
+- `ip_address` - Static IP address of the server
+
 - `etc_hosts_entry` - An entry in /etc/hosts mapping your static ip to your fqdn
 
 - `locale` - Your default system locale e.g. en_US.UTF-8
@@ -38,3 +40,4 @@ The overall steps are:
 - `reboot_on_upgrade` - whether to reboot when unattended upgrades require it (default "no")
 
 - `reboot_time` - What time to reboot in format HH:MM (default "now")
+

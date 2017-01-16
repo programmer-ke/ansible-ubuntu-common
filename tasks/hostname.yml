@@ -4,7 +4,7 @@
         mode=0644
   notify: restart hostname service
 
-- name: Updates /etc/hosts (127.0.1.1)
-  lineinfile: dest=/etc/hosts regexp=^127.0.1.1 line="{{ etc_hosts_entry }}"
+- name: Updates /etc/hosts to map fqdn to IP address
+  lineinfile: dest=/etc/hosts regexp="^{{ ip_address }}" line="{{ etc_hosts_entry }}"
               state=present
   notify: restart hostname service
