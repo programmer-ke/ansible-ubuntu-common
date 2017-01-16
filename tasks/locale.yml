@@ -1,9 +1,11 @@
 ---
 - name: Generate locale
   command: /usr/sbin/locale-gen {{ locale }}
+  changed_when: False
 
 - name: Set locale
   command: /usr/sbin/update-locale LANG={{ locale }} LC_ALL={{ locale }}
+  changed_when: False
 
 - name: Ensures we have the latest timezone data
   apt: name=tzdata state=latest
