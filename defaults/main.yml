@@ -7,3 +7,5 @@ additional_iptables_rules: []
 fail2ban_mail_recipient: "root@localhost"
 reboot_on_upgrade: no
 reboot_time: now
+additional_packages:
+  - emacs-nox

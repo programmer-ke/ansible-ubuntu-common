@@ -17,7 +17,7 @@ The overall steps are:
 
 - Unattended security upgrades
 
-- Useful tools e.g emacs
+- Useful tools/packages from default ubuntu repo e.g. emacs :)
 
 ## Required Variables
 
@@ -40,4 +40,12 @@ The overall steps are:
 - `reboot_on_upgrade` - whether to reboot when unattended upgrades require it (default "no")
 
 - `reboot_time` - What time to reboot in format HH:MM (default "now")
+
+- `additional_packages` - Additional packages from default repo that should be present (default: emacs-nox)
+
+## TODO
+
+- Add tests
+
+- add to galaxy
 

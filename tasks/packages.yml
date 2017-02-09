@@ -1,0 +1,4 @@
+---
+- name: Check that required additional packages are installed
+  apt: pkg="{{ item }}" state=present
+  with_items: "{{ additional_packages }}"
